@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telehealth UI Master Kit - Design Tokens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colors - Background */
+            --color-bg-page: #F8FAFA;
+            --color-surface: #FFFFFF;
+            --color-bg-muted: #F3F4F6;
+
+            /* Colors - Text */
+            --color-text-primary: #111827;
+            --color-text-secondary: #4B5563;
+            --color-text-tertiary: #9CA3AF;
+            --color-text-on-dark: #FFFFFF;
+
+            /* Colors - Accents */
+            --color-accent-primary: #000000;
+            --color-accent-primary-hover: #1F2937;
+            
+            --color-success: #10B981;
+            --color-success-light: #ECFDF5;
+            --color-success-dark: #064E3B;
+
+            --color-info: #3B82F6;
+            --color-info-light: #EFF6FF;
+
+            --color-warning: #F59E0B;
+            --color-warning-light: #FFFBEB;
+
+            --color-danger: #EF4444;
+            --color-danger-light: #FEF2F2;
+
+            /* Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-pill: 9999px;
+
+            /* Elevation */
+            --elevation-none: none;
+            --elevation-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --elevation-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --elevation-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --elevation-card: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: var(--color-bg-page);
+            color: var(--color-text-primary); 
+            min-height: 100vh;
+        }
+
+        .font-display { font-family: 'Outfit', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        .token-container {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-2xl);
+            box-shadow: var(--elevation-lg);
+            padding: 48px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius-xl);
+        }
+
+        /* Typography Helper Classes */
+        .text-h1 { font-family: 'Outfit', sans-serif; font-size: 60px; font-weight: 700; line-height: 1.1; }
+        .text-h2 { font-family: 'Outfit', sans-serif; font-size: 36px; font-weight: 600; line-height: 1.2; }
+        .text-h3 { font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 600; line-height: 1.3; }
+        .text-body { font-size: 16px; font-weight: 400; line-height: 1.5; }
+        .text-small { font-size: 14px; font-weight: 400; line-height: 1.4; }
+        .text-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    </style>
+</head>
+<body class="py-12 px-6">
+
+    <main class="max-w-[1200px] mx-auto token-container">
+        
+        <header class="mb-12 border-b border-gray-100 pb-8">
+            <h1 class="text-h1 mb-2">Telehealth UI Master Kit</h1>
+            <p class="text-gray-500 text-lg">Version 1.0.0 • Clean healthcare design system with Outfit & Plus Jakarta Sans.</p>
+        </header>
+
+        <div class="glass-panel overflow-hidden shadow-sm">
+            
+            <!-- Table Header -->
+            <div class="grid grid-cols-12 gap-4 px-8 py-5 border-b border-black/5 bg-white/50">
+                <div class="col-span-4 text-[10px] font-bold uppercase tracking-widest text-gray-400">Token Name</div>
+                <div class="col-span-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Token Value</div>
+                <div class="col-span-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">Resolved Value</div>
+                <div class="col-span-2 text-[10px] font-bold uppercase tracking-widest text-gray-400 text-right">Preview</div>
+            </div>
+
+            <!-- 1.0 Spacing Scale -->
+            <div class="px-8 py-4 bg-gray-50/50 border-b border-black/5">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="ruler" class="w-4 h-4 text-blue-500"></i>
+                    <h3 class="text-sm font-bold text-gray-900">1.0 Spacing Scale</h3>
+                </div>
+            </div>
+            <script>
+                const spacing = {
+                    "xxs": "4px", "xs": "8px", "sm": "12px", "md": "16px",
+                    "lg": "24px", "xl": "32px", "xxl": "48px", "huge": "64px"
+                };
+                Object.entries(spacing).forEach(([name, val]) => {
+                    document.write(`
+                        <div class="grid grid-cols-12 gap-4 px-8 py-4 border-b border-black/5 hover:bg-gray-50/30 transition-colors items-center">
+                            <div class="col-span-4 font-mono text-sm font-medium text-gray-700">space-${name}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">${val}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">${val}</div>
+                            <div class="col-span-2 flex justify-end">
+                                <div class="bg-black opacity-10" style="width: ${val}; height: 16px;"></div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+
+            <!-- 2.0 Border Radius -->
+            <div class="px-8 py-4 bg-gray-50/50 border-b border-black/5 mt-2">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="square" class="w-4 h-4 text-emerald-500"></i>
+                    <h3 class="text-sm font-bold text-gray-900">2.0 Border Radius</h3>
+                </div>
+            </div>
+            <script>
+                const radius = {
+                    "sm": "8px", "md": "12px", "lg": "16px", "xl": "24px", "2xl": "32px", "pill": "9999px"
+                };
+                Object.entries(radius).forEach(([name, val]) => {
+                    document.write(`
+                        <div class="grid grid-cols-12 gap-4 px-8 py-4 border-b border-black/5 hover:bg-gray-50/30 transition-colors items-center">
+                            <div class="col-span-4 font-mono text-sm font-medium text-gray-700">radius-${name}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">${val}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">${val}</div>
+                            <div class="col-span-2 flex justify-end">
+                                <div class="w-10 h-10 bg-gray-100 border border-gray-200" style="border-radius: ${val};"></div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+
+            <!-- 3.0 Elevation System -->
+            <div class="px-8 py-4 bg-gray-50/50 border-b border-black/5 mt-2">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="layers" class="w-4 h-4 text-purple-500"></i>
+                    <h3 class="text-sm font-bold text-gray-900">3.0 Elevation System</h3>
+                </div>
+            </div>
+            <script>
+                const elevations = [
+                    { name: 'none', val: 'none' },
+                    { name: 'sm', val: '0 1px 2px 0 rgba(0, 0, 0, 0.05)' },
+                    { name: 'md', val: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' },
+                    { name: 'lg', val: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)' },
+                    { name: 'card', val: '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' }
+                ];
+                elevations.forEach(e => {
+                    document.write(`
+                        <div class="grid grid-cols-12 gap-4 px-8 py-5 border-b border-black/5 hover:bg-gray-50/30 transition-colors items-center">
+                            <div class="col-span-4 font-mono text-sm font-medium text-gray-700">elevation-${e.name}</div>
+                            <div class="col-span-3 font-mono text-[10px] text-gray-400 truncate pr-4">${e.val}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">box-shadow</div>
+                            <div class="col-span-2 flex justify-end">
+                                <div class="w-12 h-12 bg-white rounded-lg border border-gray-50" style="box-shadow: ${e.val};"></div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+
+            <!-- 4.0 Color System -->
+            <div class="px-8 py-4 bg-gray-50/50 border-b border-black/5 mt-2">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="palette" class="w-4 h-4 text-orange-500"></i>
+                    <h3 class="text-sm font-bold text-gray-900">4.0 Color System</h3>
+                </div>
+            </div>
+            
+            <!-- Backgrounds -->
+            <div class="px-8 py-3 bg-white/50 border-b border-black/5">
+                <h4 class="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">4.1 Background Colors</h4>
+            </div>
+            <script>
+                const bgColors = {
+                    'page': '#F8FAFA', 'surface': '#FFFFFF', 'muted': '#F3F4F6'
+                };
+                Object.entries(bgColors).forEach(([name, val]) => {
+                    document.write(`
+                        <div class="grid grid-cols-12 gap-4 px-8 py-4 border-b border-black/5 hover:bg-gray-50/30 items-center">
+                            <div class="col-span-4 font-mono text-sm font-medium text-gray-700">bg-${name}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400 uppercase">${val}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">Solid</div>
+                            <div class="col-span-2 flex justify-end">
+                                <div class="w-8 h-8 rounded-full border border-gray-100 shadow-sm" style="background-color: ${val};"></div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+
+            <!-- Accents -->
+            <div class="px-8 py-3 bg-white/50 border-b border-black/5">
+                <h4 class="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">4.2 Brand & Utility Accents</h4>
+            </div>
+            <script>
+                const accents = [
+                    { name: 'primary', val: '#000000', type: 'Base' },
+                    { name: 'primary-hover', val: '#1F2937', type: 'Hover' },
+                    { name: 'success', val: '#10B981', type: 'Base' },
+                    { name: 'success-light', val: '#ECFDF5', type: 'Light' },
+                    { name: 'success-dark', val: '#064E3B', type: 'Dark' },
+                    { name: 'info', val: '#3B82F6', type: 'Base' },
+                    { name: 'info-light', val: '#EFF6FF', type: 'Light' },
+                    { name: 'warning', val: '#F59E0B', type: 'Base' },
+                    { name: 'warning-light', val: '#FFFBEB', type: 'Light' },
+                    { name: 'danger', val: '#EF4444', type: 'Base' },
+                    { name: 'danger-light', val: '#FEF2F2', type: 'Light' }
+                ];
+                accents.forEach(accent => {
+                    document.write(`
+                        <div class="grid grid-cols-12 gap-4 px-8 py-4 border-b border-black/5 hover:bg-gray-50/30 items-center">
+                            <div class="col-span-4 font-mono text-sm font-medium text-gray-700">accent-${accent.name}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400 uppercase">${accent.val}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">${accent.type}</div>
+                            <div class="col-span-2 flex justify-end">
+                                <div class="w-8 h-8 rounded-full shadow-sm border border-gray-100" style="background-color: ${accent.val};"></div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+
+            <!-- Text Colors -->
+            <div class="px-8 py-3 bg-white/50 border-b border-black/5">
+                <h4 class="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">4.3 Text Colors</h4>
+            </div>
+            <script>
+                const textColors = {
+                    'primary': '#111827', 'secondary': '#4B5563', 'tertiary': '#9CA3AF', 'on-dark': '#FFFFFF'
+                };
+                Object.entries(textColors).forEach(([name, val]) => {
+                    document.write(`
+                        <div class="grid grid-cols-12 gap-4 px-8 py-4 border-b border-black/5 hover:bg-gray-50/30 items-center">
+                            <div class="col-span-4 font-mono text-sm font-medium text-gray-700">text-${name}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400 uppercase">${val}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">Text</div>
+                            <div class="col-span-2 flex justify-end">
+                                <div class="px-2 py-1 rounded bg-gray-100 flex items-center justify-center min-w-[32px]">
+                                    <span class="text-sm font-bold" style="color: ${val}; ${name === 'on-dark' ? 'background: #000; padding: 2px 4px; border-radius: 4px;' : ''}">Aa</span>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+
+            <!-- 5.0 Typography System -->
+            <div class="px-8 py-4 bg-gray-50/50 border-b border-black/5 mt-2">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="type" class="w-4 h-4 text-blue-600"></i>
+                    <h3 class="text-sm font-bold text-gray-900">5.0 Typography System</h3>
+                </div>
+            </div>
+            <script>
+                const typography = [
+                    { name: 'h1', size: '60px', weight: '700', lh: '1.1', font: 'Outfit' },
+                    { name: 'h2', size: '36px', weight: '600', lh: '1.2', font: 'Outfit' },
+                    { name: 'h3', size: '24px', weight: '600', lh: '1.3', font: 'Outfit' },
+                    { name: 'body', size: '16px', weight: '400', lh: '1.5', font: 'Plus Jakarta Sans' },
+                    { name: 'small', size: '14px', weight: '400', lh: '1.4', font: 'Plus Jakarta Sans' },
+                    { name: 'label', size: '12px', weight: '600', lh: '1', font: 'Plus Jakarta Sans', transform: 'uppercase' }
+                ];
+                typography.forEach(t => {
+                    document.write(`
+                        <div class="grid grid-cols-12 gap-4 px-8 py-6 border-b border-black/5 hover:bg-gray-50/30 transition-colors items-center">
+                            <div class="col-span-4 font-mono text-sm font-medium text-gray-700">text-${t.name}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">${t.size} / ${t.lh}</div>
+                            <div class="col-span-3 font-mono text-[10px] text-gray-400">${t.font} (${t.weight})</div>
+                            <div class="col-span-2 flex justify-end overflow-hidden">
+                                <span class="truncate whitespace-nowrap" style="font-family: '${t.font}'; font-size: ${parseInt(t.size) > 24 ? '24px' : t.size}; font-weight: ${t.weight}; text-transform: ${t.transform || 'none'};">Sample</span>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+
+            <!-- 6.0 Core Components -->
+            <div class="px-8 py-4 bg-gray-50/50 border-b border-black/5 mt-2">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="component" class="w-4 h-4 text-pink-500"></i>
+                    <h3 class="text-sm font-bold text-gray-900">6.0 Core Components</h3>
+                </div>
+            </div>
+            
+            <!-- Button Primary -->
+            <div class="grid grid-cols-12 gap-4 px-8 py-8 border-b border-black/5 hover:bg-gray-50/30 items-center">
+                <div class="col-span-4">
+                    <div class="font-mono text-sm font-medium text-gray-700">button-primary</div>
+                    <div class="text-[10px] text-gray-400 font-mono mt-1">Black / Text-White / Pill</div>
+                </div>
+                <div class="col-span-3 font-mono text-xs text-gray-400">#000000</div>
+                <div class="col-span-3 font-mono text-xs text-gray-400">12px 24px</div>
+                <div class="col-span-2 flex justify-end">
+                    <button style="background: #000; color: #fff; padding: 12px 24px; border-radius: 9999px; font-weight: 600; font-size: 14px;">Action</button>
+                </div>
+            </div>
+
+            <!-- Button Secondary -->
+            <div class="grid grid-cols-12 gap-4 px-8 py-8 border-b border-black/5 hover:bg-gray-50/30 items-center">
+                <div class="col-span-4">
+                    <div class="font-mono text-sm font-medium text-gray-700">button-secondary</div>
+                    <div class="text-[10px] text-gray-400 font-mono mt-1">Transparent / Border / Pill</div>
+                </div>
+                <div class="col-span-3 font-mono text-xs text-gray-400">#E5E7EB</div>
+                <div class="col-span-3 font-mono text-xs text-gray-400">12px 24px</div>
+                <div class="col-span-2 flex justify-end">
+                    <button style="background: transparent; border: 1px solid #E5E7EB; color: #111827; padding: 12px 24px; border-radius: 9999px; font-weight: 600; font-size: 14px;">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Card Default -->
+            <div class="grid grid-cols-12 gap-4 px-8 py-10 border-b border-black/5 hover:bg-gray-50/30 items-center">
+                <div class="col-span-4">
+                    <div class="font-mono text-sm font-medium text-gray-700">card-default</div>
+                    <div class="text-[10px] text-gray-400 font-mono mt-1">White / radius-24px / shadow-card</div>
+                </div>
+                <div class="col-span-3 font-mono text-xs text-gray-400">padding: 32px</div>
+                <div class="col-span-3 font-mono text-xs text-gray-400">radius: 24px</div>
+                <div class="col-span-2 flex justify-end">
+                    <div class="bg-white rounded-[24px] shadow-[0_20px_25px_-5px_rgba(0,0,0,0.05),0_10px_10px_-5px_rgba(0,0,0,0.04)] border border-gray-100 p-4 w-24 h-24 flex items-center justify-center">
+                        <div class="w-8 h-2 bg-gray-100 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badge Pill -->
+            <div class="grid grid-cols-12 gap-4 px-8 py-8 border-b border-black/5 hover:bg-gray-50/30 items-center">
+                <div class="col-span-4">
+                    <div class="font-mono text-sm font-medium text-gray-700">badge-pill</div>
+                    <div class="text-[10px] text-gray-400 font-mono mt-1">radius-pill / size: 12px</div>
+                </div>
+                <div class="col-span-3 font-mono text-xs text-gray-400">padding: 4px 12px</div>
+                <div class="col-span-3 font-mono text-xs text-gray-400">radius: pill</div>
+                <div class="col-span-2 flex justify-end">
+                    <span class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-[12px] font-bold">New</span>
+                </div>
+            </div>
+
+            <!-- 7.0 Iconography -->
+            <div class="px-8 py-4 bg-gray-50/50 border-b border-black/5 mt-2">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shapes" class="w-4 h-4 text-indigo-500"></i>
+                    <h3 class="text-sm font-bold text-gray-900">7.0 Iconography</h3>
+                </div>
+            </div>
+            <script>
+                const iconSizes = {
+                    'sm': '16px', 'md': '20px', 'lg': '24px', 'xl': '32px'
+                };
+                Object.entries(iconSizes).forEach(([name, size]) => {
+                    document.write(`
+                        <div class="grid grid-cols-12 gap-4 px-8 py-6 border-b border-black/5 hover:bg-gray-50/30 items-center">
+                            <div class="col-span-4">
+                                <div class="font-mono text-sm font-medium text-gray-700">icon-${name}</div>
+                                <div class="text-[10px] text-gray-400 font-mono mt-1">Lucide / Outlined / 2px stroke</div>
+                            </div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">size: ${size}</div>
+                            <div class="col-span-3 font-mono text-xs text-gray-400">stroke-width: 2px</div>
+                            <div class="col-span-2 flex justify-end gap-3">
+                                <i data-lucide="activity" style="width: ${size}; height: ${size};" class="text-gray-400" stroke-width="2"></i>
+                                <i data-lucide="user" style="width: ${size}; height: ${size};" class="text-gray-400" stroke-width="2"></i>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
